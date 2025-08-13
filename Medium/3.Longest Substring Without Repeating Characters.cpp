@@ -1,4 +1,4 @@
-// start=mpp[curr]+1; this is done because we have to remove all the characters unitil the repeating character is found
+// start=mpp[curr]+1; this is done because we have to remove all the characters until the repeating character is found
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -9,7 +9,7 @@ public:
             char curr=s[end]; //storing each character to find in the map
 
             if(mpp.find(curr)!=mpp.end() && mpp[curr]>=start){
-                start=mpp[curr]+1;  //this is done because we have to remove all the characters unitil the repeating character is found dry run abcdb and check
+                start=mpp[curr]+1;  //this is done because we have to remove all the characters until the repeating character is found dry run abcdb and check
             }
 
             mpp[curr]=end; //to update the latest index found in map
