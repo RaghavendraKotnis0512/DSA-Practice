@@ -10,3 +10,30 @@
 // }
 
 
+class Solution {
+public:
+
+    vector<string>result;
+    string ans="";
+    void backtrack(string s, vector<string>& wordDict){
+        if(s.length()==0){
+            result.push_back(ans.substr(0, ans.size() - 1));
+        }
+        for(int i=0;i<wordDict.size();i++){
+            if(s.rfind(wordDict[i],0)==0){
+                int oldLen=ans.size();
+                ans+=wordDict[i]+" ";
+            s.erase(0,wordDict[i].size());
+            backtrack(s,wordDict);
+            s.insert(0,wordDict[i]);
+            ans.resize(oldLen);
+            }
+           
+        }
+    }
+
+    vector<string> wordBreak(string s, vector<string>& wordDict) {
+        backtrack(s,wordDict);
+        return result;
+    }
+};
