@@ -26,7 +26,7 @@ public:
             s.erase(0,wordDict[i].size());
             backtrack(s,wordDict);
             s.insert(0,wordDict[i]);
-            ans.resize(oldLen);
+            ans.resize(oldLen);//to remove the last word and try other options
             }
            
         }
